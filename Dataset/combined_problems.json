@@ -1,0 +1,119 @@
+[
+    {
+        "description": "Find the floor division of two numbers.",
+        "expected_solution": "num1 = int(input('Enter the first number: '))\nnum2 = int(input('Enter the second number: '))\n \nresult = num1//num2\nprint(result)",
+        "programming_language": "Python",
+        "difficulty_level": "Easy",
+        "test_cases": [
+            {"input": [9, 2], "expected_output": "4"},
+            {"input": [15, 3], "expected_output": "5"},
+            {"input": [10, 2], "expected_output": "5"},
+            {"input": [7, 3], "expected_output": "2"},
+            {"input": [20, 4], "expected_output": "5"}
+        ]
+    },
+    {
+        "description": "Calculate the result of the second number power of the first number.",
+        "expected_solution": "base_num = int(input('Give me the base number: '))\npower_num = int(input('Give me the power number: '))\nresult = base_num ** power_num\nprint('Your result is: ', result)",
+        "programming_language": "Python",
+        "difficulty_level": "Easy",
+        "test_cases": [
+            {"input": [2, 3], "expected_output": "8"},
+            {"input": [5, 2], "expected_output": "25"},
+            {"input": [3, 4], "expected_output": "81"},
+            {"input": [7, 2], "expected_output": "49"},
+            {"input": [10, 3], "expected_output": "1000"}
+        ]
+    },
+    {
+        "description": "Create a random number between 0 to 10.",
+        "expected_solution": "import random\n\nrandom_num = random.randint(0,10)\nprint(random_num)",
+        "programming_language": "Python",
+        "difficulty_level": "Easy",
+        "test_cases": []  
+    },
+    {
+        "description": "> Swap two variables.<br><br>To swap two variables: the value of the first variable will become the value of the second variable. On the other hand, the value of the second variable will become the value of the first variable.",
+        "expected_solution": "a = 5\nb = 7\nprint('a, b', a, b)\n# swap these two\ntemp = a\na = b\nb = temp\nprint('a, b', a, b)",
+        "programming_language": "Python",
+        "difficulty_level": "Easy",
+        "test_cases": [
+            {"input": [], "expected_output": "a, b 7 5"}
+           
+        ]
+    },
+    {
+        "description": "Take two inputs from the user. One will be an integer. The other will be a float number. Then multiply them to display the output.",
+        "expected_solution": "int_text = input(\"Give me an integer number: \")\nint_num = int(int_text)\nfloat_text = input(\"Give me a float  number: \")\nfloat_num = float(float_text)\nresult = int_num * float_num\nprint(\"Your result is: \", result)",
+        "programming_language": "Python",
+        "difficulty_level": "Easy",
+        "test_cases": [
+            {"input": ["3", "2.5"], "expected_output": "Your result is: 7.5"},
+            {"input": ["-1", "3.5"], "expected_output": "Your result is: -3.5"},
+            {"input": ["10", "0.5"], "expected_output": "Your result is: 5.0"}
+            
+        ]
+    },
+    {
+        "description": "You have three lists of words. Create all possible combinations of sentences by taking one element from each list.",
+        "expected_solution": "subjects=[\"I\", \"You\"]\nverbs=[\"Play\", \"Love\"]\nobjects=[\"Hockey\",\"Football\"]\nfor i in range(len(subjects)):\n   for j in range(len(verbs)):\n       for k in range(len(objects)):\n           print (subjects[i], verbs[j], objects[k])",
+        "programming_language": "Python",
+        "difficulty_level": "Harder",
+        "test_cases": []  
+    },
+    {
+        "description": "Generate a password. Your password may contain letters in uppercase or lowercase. It also may contain digits or special characters.",
+        "expected_solution": "import string\nimport random\n \ndef generate_password(size):\n   all_chars = string.ascii_letters + string.digits + string.punctuation\n   password = ''\n   for char in range(size):\n       rand_char = random.choice(all_chars)\n       password = password + rand_char\n   return password\n \npass_len = int(input('How many characters in your password?'))\nnew_password = generate_password(pass_len)\nprint('Your new password: ', new_password)",
+        "programming_language": "Python",
+        "difficulty_level": "Harder",
+        "test_cases": [
+            {"input": [8], "expected_output": "Your new password: xxxxxxxx"},
+            {"input": [12], "expected_output": "Your new password: xxxxxxxxxxxx"},
+            {"input": [15], "expected_output": "Your new password: xxxxxxxxxxxxxx"}
+            
+        ]
+    },
+    {
+        "description": "Generate a password that has a minimum of one uppercase, one lowercase, one digit, and one special character",
+        "expected_solution": "import random\nimport string\n \ndef randomPassword(size):\n\tall_chars = string.ascii_letters + string.digits + string.punctuation\n\tpassword = \"\"\n\tpassword += random.choice(string.ascii_lowercase)\n\tpassword += random.choice(string.ascii_uppercase)\n\tpassword += random.choice(string.digits)\n\tpassword += random.choice(string.punctuation)\n\t\n\tfor i in range(size-4):\n\t\tpassword += random.choice(all_chars)\n\treturn password\n \npass_len = int(input(\"What would be the password length? \"))\nprint (\"First Random Password is:\", randomPassword(pass_len))\nprint (\"Second Random Password is:\", randomPassword(pass_len))\nprint (\"Third Random Password is:\", randomPassword(pass_len))",
+        "programming_language": "Python",
+        "difficulty_level": "Harder",
+        "test_cases": [
+            {"input": [10], "expected_output": "First Random Password is: xX1!xxxxxxxx"},
+            {"input": [14], "expected_output": "Second Random Password is: xY2?xxxxxxxxxx"},
+            {"input": [12], "expected_output": "Third Random Password is: xZ3&xxxxxxxx"}
+            
+        ]
+    },
+    {
+        "description": "Find all permutations of a given list.",
+        "expected_solution": "def get_permutation(lst):\n   # For an empty list, there is no permutation\n   if len(lst) == 0:\n       return []\n   # list with one element will have only one\n   # permutation\n   if len(lst) == 1:\n       return [lst]\n  # Create an empty list to store permutation\n   perms = []\n   for i in range(len(lst)):\n       # Extract current elemnt from the list.\n       current = lst[i]\n       # Recursively call permutation for the\n       # remaining list\n       rem_list = lst[:i] + lst[i+1:]\n       rem_perm = get_permutation(rem_list)\n       # Generate permutations by adding first element\n       for p in rem_perm:\n           perms.append([current] + p)\n   return perms\n# now test the function\ndata = [1,2,3]\nfor perm in get_permutation(data):\n   print (perm)",
+        "programming_language": "Python",
+        "difficulty_level": "Harder",
+        "test_cases": [
+            {"input": [[1, 2, 3]], "expected_output": "[[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]"},
+            {"input": [[4, 5, 6]], "expected_output": "[[4, 5, 6], [4, 6, 5], [5, 4, 6], [5, 6, 4], [6, 4, 5], [6, 5, 4]]"}
+            
+        ]
+    },
+    {
+        "description": "Write a Python program that functions as a simple calculator. The program should take two numbers and an operation (addition, subtraction, multiplication, division) as input from the user and display the result.",
+        "expected_solution": "def add(num1, num2):\n return num1 + num2\n \ndef subtract(num1, num2):\n return num1 - num2\n \ndef multiply(num1, num2):\n return num1 * num2\n \ndef divide(num1, num2):\n return num1 / num2\n \ndef modulo(num1, num2):\n return num1 % num2\n \n# Take input from the user\nnum1 = int(input(\"Enter first number: \"))\noperation = input(\"What you want to do(+, -, *, /, %):\")\nnum2 = int(input(\"Enter second number: \"))\n \nresult = 0\nif operation == '+':\n result = add(num1,num2)\nelif operation == '-':\n result = subtract(num1,num2)\nelif operation == '*':\n result = multiply(num1,num2)\nelif operation == '/':\n result = divide(num1,num2)\nelif operation == '%':\n result = modulo(num1,num2)\nelse:\n print(\"Please enter: +, -, *, / or %\")\n \nprint(num1, operation, num2, '=', result)",
+        "programming_language": "Python",
+        "difficulty_level": "Harder",
+        "test_cases": [
+            {"input": [3, "+", 5], "expected_output": "3 + 5 = 8"},
+            {"input": [10, "*", 2], "expected_output": "10 * 2 = 20"},
+            {"input": [8, "/", 4], "expected_output": "8 / 4 = 2.0"}
+            
+        ]
+    },
+
+    {
+        "description": "Take the temperature in degrees Celsius and convert it to Fahrenheit.",
+        "expected_solution": "celsius = float(input(\"Enter temperature in degrees Celsius: \"))\n\nfahrenheit = celsius*9/5+32\n\nprint(\"Temperature in Fahrenheit:\", fahrenheit)",
+        "programming_language": "Python",
+        "difficulty_level": "Harder",
+        "test_cases": []  
+    }
+]
